@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#bgChage{
+				height: 50px;
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrop">
+			<h1>按键变色</h1>
+			<div id="bgChage" style="background-color: blue">
+				keyCode为:
+				<span id="keyCodeSpan"></span>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//获取div
+		var $div = $('#bgChage');
+		
+		//显示按键的span
+		var $showCode = $('#keyCodeSpan');
+		
+		//给页面注册一个键盘按键事件
+		$(document).on('keydown',function(e){
+			console.log(e.keyCode); // r:82   g:71   b:66    y:89  
+			switch(e.keyCode){
+				case 82:
+					$div.css('background-color','red');
+					$showCode.text('82');
+				break;
+				case 71:
+					$div.css('background-color','green');
+					$showCode.text('71');
+				break;
+				case 66:
+					$div.css('background-color','blue');
+					$showCode.text('66');
+				break;
+				case 89:
+					$div.css('background-color','yellow');
+					$showCode.text('89');
+				break;	
+				default:
+					$div.css('background-color','pink');
+					$showCode.text('没有这个键');
+			}
+		})
+	})
+</script>

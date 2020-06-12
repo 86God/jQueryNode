@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='div1'>
+			我的一个div1标签
+			<p>我是p标签</p>
+			<span>我是一个span标签</span>
+		</div>
+		
+		<div id='div3'>
+			我的一个div2标签
+			<p>我是p标签</p>
+			<span>我是一个span标签</span>
+		</div>
+		<button id="but1">获取文本</button>
+		<button id="but2">设置文本</button>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery未压缩版.js" ></script>
+<script>
+	$(function(){
+		
+		//1获取文本，text()方法
+		//1.1 通过id获取div1的文本，会把div的以及子类的文本全部获取
+//		$('#but1').click(function(){
+//			console.log($('#div1').text());
+//		});
+		
+		//1.2 通过标签获取多个dom，会把所有dom标签的文本获取到
+		$('#but1').click(function(){
+			console.log($('div').text());
+		});
+		
+		
+		
+		//2.设置文本 
+		//设置文本会覆盖原来的内容，如果文本中用标签，是不会解析出来的
+		//2.1 通过id设置div1的文本，会把div1的以及子类的全部替换
+		$('#but2').click(function(){
+			console.log($('#div1').text('我是新设置的文本<a>我的连接</a>'));
+		});
+//		
+		//2.2 通过标签设置多个dom，会把所有dom标签及其子类的文本全部替换掉
+		$('#but2').click(function(){
+			console.log($('div').text('我是新设置的文本<a>我的连接</a>'));
+		});
+		
+	});
+</script>

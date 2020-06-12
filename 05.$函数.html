@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="divOne"></div>
+	</body>
+</html>
+<script src="js/jQuery未压缩版.js"></script>
+
+<script>
+	
+	/*
+	 * 1.$是什么？
+	 * 如果报了错误：$ is not defined,就说明没有引入jQuery文件
+	 */
+//	$(function(){
+//		
+//	})
+//	
+	
+	/*
+	 * 2.jQuery文件结构
+	 * jQuery 其实是一个自执行函数
+	 * window.jQuery = window.$ = jQuery;
+	 */
+	
+	
+	/*
+	 * 3.
+	 * a.引入一个js文件，是会执行这js文件中的代码的
+	 * b.jQuery文件是一个自执行函数，执行这个jQuery文件中的代码，其实就是执行这个自制行函数
+	 * c.这个自制行文件就是给window对象添加了一个jQuery 属性和$属性
+	 * jQuery 其实是一个自执行函数
+	 * window.jQuery = window.$ = jQuery;
+	 */
+	
+	console.log(window);
+	console.log(window.jQuery == window.$);
+	
+	console.log(Object.prototype.toString.call($));
+	
+	
+	/*
+	 * 4.$是一个函数
+	 * 参数不同效果也不同
+	 * 4.1 如果传递一个匿名函数————入口函数
+	 * 4.2如果传递的是一个字符串————选择器
+	 * 
+	 */
+	//4.1 如果传递一个匿名函数————入口函数
+	$(function(){
+		console.log('sss');
+		
+	})
+	
+	//4.2如果传递的是一个字符串————选择器/创建一个标签
+	$('#btnOne')
+	$('<div>我是一个div标签</div>')
+
+	//4.3 如果传递一个dom对象，那么他就会把dom对象转换成jQuery对象
+	var div1 = document.getElementById('divOne');
+	var $divOne = $(div1);
+	console.log($divOne);
+</script>

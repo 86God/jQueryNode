@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>高亮显示</title>
+		<style>
+			body{
+				background: #000;
+			}
+			img{
+				width: 150px ;
+				height: 150px;
+			}
+			.wrap{
+				margin: 100px auto 0;
+				width: 570px;
+				height: 350px;
+				padding: 10px 0 0 10px;
+				background: #000;
+				overflow: hidden;
+				border: 1px solid #fff;
+			}
+			.wrap li{
+				float: left;
+				margin: 0 10px 10px 0;
+			}
+			li{
+				display: list-item;
+				text-align: -webkit-match-parent;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul>
+				<li>
+					<img src="img/img2.jpg" alt=""/>
+				</li>
+				<li>
+					<img src="img/img5.jpg" alt=""/>
+				</li>
+				<li>
+					<img src="img/img6.jpg" alt=""/>
+				</li>
+				<li>
+					<img src="img/img7.jpg" alt=""/>
+				</li>
+				<li>
+					<img src="img/img8.jpg" alt=""/>
+				</li>
+				<li>
+					<img src="img/img9.jpg" alt=""/>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	
+	$(function(){
+		//添加鼠标移入事件，给移入的li标签透明度设为1，其他的兄弟设为0.4
+		//鼠标离开大盒子，所有li标签透明度设为1
+//		$('.wrap li')   //可以的
+		$('.wrap').find("li").mouseenter(function(){
+			$(this).css('opacity',1).siblings('li').css('opacity',0.4);
+		})
+		
+		$('.wrap').mouseleave(function(){
+			$(this).find('li').css('opacity',1);
+		})
+		
+	})
+	
+</script>

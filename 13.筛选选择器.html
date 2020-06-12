@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>筛选选择器</title>
+		<style>
+			/*
+			 * 先让二级菜单隐藏
+			 */
+			.wrap ul li ul{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul>
+				<li>
+					<a href="">一级菜单</a>
+					<ul>
+						<li><a href="">二级菜单1</a></li>
+						<li><a href="">二级菜单2</a></li>
+						<li><a href="">二级菜单3</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="">一级菜单</a>
+					<ul>
+						<li><a href="">二级菜单1</a></li>
+						<li><a href="">二级菜单2</a></li>
+						<li><a href="">二级菜单3</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">一级菜单</a>
+					<ul>
+						<li><a href="">二级菜单1</a></li>
+						<li><a href="">二级菜单2</a></li>
+						<li><a href="">二级菜单3</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+
+<script>
+	$(function(){
+		
+		//给一级菜单设置鼠标移入事件
+		$('.wrap > ul > li').mouseenter(function(){
+			//this是触发事件的dom对象
+//			console.log(this);
+			//让二级菜单显示
+			//让组件显示有两种方式：两种方式的本质是相同的
+			//(1)更改 display属性为block
+//			$(this).children('ul').css('display','block');
+			
+			//(2)调用show()方法
+			$(this).children('ul').stop(true,false).show(300);
+		})
+		
+		//给一级菜单设置鼠标离开事件
+		$('.wrap > ul > li').mouseleave(function(){
+			//this是触发事件的dom对象
+			console.log(this);
+			//让二级菜单隐藏
+			//让组件隐藏有两种方式：两种方式的本质是相同的
+
+			//(1)更改 display属性为none
+//			$(this).children('ul').css('display','none');
+			
+			//(2)调用hide()方法
+			$(this).children('ul').hide(150);
+			
+		})
+		
+	})
+	
+</script>

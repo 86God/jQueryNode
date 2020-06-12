@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>清空和移除节点</title>
+	</head>
+	<body>
+		<input type="button" value="清空" id="btn1" />
+		<input type="button" value="移除" id="btn2" />
+		<ul id="ul1">
+			<li>我是li标签1</li>
+			<li>我是li标签2</li>
+			<li id="li3">我是li标签3</li>
+			<li>我是li标签4</li>
+			<li>我是li标签5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//1.清空元素：empty()
+		$('#btn1').click(function(){
+			//清空ul
+//			$('#ul1').html("");  //不建议使用,有可能造成内存泄漏
+			$('#ul1').empty();
+		});
+		
+		//2.移除某一个元素：remove()
+		$('#btn2').click(function(){
+			//移除li3
+//			$('#ul1').html("");  //不建议使用,有可能造成内存泄漏
+			$('#li3').remove();  //自杀
+		})
+	})
+</script>

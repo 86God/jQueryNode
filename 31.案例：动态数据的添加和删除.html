@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格删除</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			table{
+				border-collapse:collapse ;
+				border-spacing: 0;
+				
+			}
+			
+			thead{
+				display: table-header-group;
+				vertical-align: middle;
+				border-color:inherit ;
+			}
+			
+			tbody{
+				display: table-row-group;
+				vertical-align: middle;
+				border-color: inherit;
+			}
+			th{
+				padding: 10px 10px;
+				background-color: skyblue;
+				border: 1px solid white;
+			}
+			td{
+				padding: 10px 10px;
+				background-color: #eeeeee;
+				border: 1px solid #999999;
+			}
+			.mask{
+				position: absolute;
+				left: 0px;
+				top:0px;
+				background-color: #EEEEEE;
+				opacity:0.5;
+				width: 100000px;
+				height: 10000px;
+				display: none;
+			}
+			
+			.form-add{
+				width: 400px;
+	            height: 300px;
+	            background: skyblue;
+	            position:absolute;
+	            left:0;
+	            top: 0;
+	            bottom: 0;
+	            right: 0;
+	          	display: none;
+			}
+			
+			#j_hideFormAdd{
+				position:absolute;
+				top: 0px;
+				right: 0px;
+				font-size: 50px;
+			}
+			
+		
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<input type="button" value="添加数据" id="btn" />
+			<table>
+				<thead>
+					<tr>
+						<th>专栏名称</th>
+						<th>内容描述</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="tb">
+					<tr>
+						<td>JavaSE 学习笔记</td>
+						<td>参考Oracle官方文档，系统学习JavaSE</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+					<tr>
+						<td>Oracle数据库笔记</td>
+						<td>参考Oracle官方文档，系统学习Oracle数据库</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+					<tr>
+						<td>LeetCode热门算法100道</td>
+						<td>刷题的必选之路</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+					<tr>
+						<td>Linux学习笔记</td>
+						<td>从零学习Linux系统</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div id="j_mask" class="mask"></div>
+		
+		<div id="j_formAdd" class="form-add">
+			<div class="form-add-title">
+				<span>添加数据</span>
+				<div id = "j_hideFormAdd">×</div>
+			</div>
+			<div class="form-item">
+				<label class="lb" for="j_txtLesson">专栏名称:</label>
+				<input class="txt" type="text" id="column" placeholder="请输入专栏名称" />
+			</div>
+			<div class="form-item">
+				<label class="lb" for="j_txtBelSch">内容简述:</label>
+				<input class="txt" type="text" id="content" placeholder="请输入内容描述" />
+			</div>
+			<div class="form-submit">
+				<input type="button" id="j_btnAdd" value="添加" />
+			</div>
+		</div>
+		
+		
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){		
+		//1.删除一行
+		$('#tb .del').click(function(){
+
+			console.log($(this));
+			$(this).parent().parent().remove();
+		});
+		
+		//2.设置添加数据按钮事件
+		$('#btn').click(function(){
+			$('#j_formAdd').show();
+			$('#j_mask').show();
+		});
+		
+		//3.设置关闭按钮事件
+		$('#j_hideFormAdd').click(function(){
+			$('#j_formAdd').hide();
+			$('#j_mask').hide();
+		});
+		
+		//4.设置添加按钮事件
+		$('#j_btnAdd').click(function(){
+			//获取专栏名称和内容描述
+			var $column = $('#column').val();
+			var $content = $('#content').val();
+			
+			//把用户的输入专栏名称和内容描述，创建一个tr
+			var $trNew = $('<tr>'+
+			'<td>'+$column+'</td>'+
+			'<td>'+$content+'</td>'+
+			'<td><button class="del">删除</button></td></tr>');
+			
+			//把新创建的tr标签添加到tbody中
+			$('#tb').append($trNew);
+			
+			//把添加数据面板和遮罩隐藏
+			$('#j_hideFormAdd').click();
+			
+			 $trNew.find('.del').click(function(){
+				 $trNew.remove();
+			});
+			
+		});
+	})
+</script>

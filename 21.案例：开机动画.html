@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模拟开机动画</title>
+		<style>
+		
+			.box{
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				clear: none;
+			}
+			#closeButton{
+				bottom: 200;
+				right: 0;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<img id="closeButton" src="img/关  闭.png" ></img>
+			
+			<div class="hd" id="headPart">
+				<img src="img/6.jpg" />
+			</div>
+			<div class="bd" id="bottomPart">
+				<img src="img/7.jpg" />
+			</div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		$('#closeButton').click(function(){
+			//让下面的部分高度变为0
+			$('#bottomPart').animate({
+				height:0
+			},1000,function(){
+				//让整个大盒子的向右移动为0
+				$('#box').animate({
+					width:0
+				},1000);
+			});
+		});
+		
+	})
+</script>

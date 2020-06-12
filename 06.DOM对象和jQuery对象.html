@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="divOne">
+		</div>
+		<div id="divTwo">
+		</div>
+		<div id="divThree">
+		</div>
+	</body>
+</html>
+<script src="js/jQuery未压缩版.js"></script>
+<script>
+	$(function(){
+		/*
+		 * 1.dom对象
+		 * 原生js选择器获取到对象
+		 * 特点：只能调用dom方法和属性，不能调用jQuery的方法和属性
+		 */
+//		var div1 = document.getElementById("divOne");
+		
+		//dom对象是可以调用dom的属性和方法
+//		div1.style.backgroundColor = "red";
+		
+		//dom对象是不可以调用jQuery的属性和方法
+//		div1.css('backgroundColor','red');
+
+		/*
+		 * 2.jQuery对象
+		 * 利用jQuery选择器获取的对象
+		 * 特点：只能调用jQuery的方法和属性，不能调用原生jsdom的属性和方法
+		 * jQuery 不是一个数组对象，jQuery是一个伪数组，jQuery对象其实就是dom对象的包装集
+		 */
+		var $div1 = $('#divOne');
+		
+		
+//		//jQuery对象是可以调用jQuery的属性和方法
+		$div1.css('background-color','green');
+//		
+//		//jQuery对象是不可以调用dom的属性和方法
+//		$div1.style.backgroundColor = "red";
+
+		console.log($div1);
+		//jQuery 不是一个数组对象，jQuery是一个伪数组，jQuery对象其实就是dom对象的包装集
+		console.log($div1.__proto__ === Array.prototype);
+		
+		var $div = $('div');
+		console.log($div);
+		
+		/*
+		 * 4.将dom对象转换为jQuery对象
+		 */
+		var div1 = document.getElementById('divOne');
+		var $divOne = $(div1);
+		console.log($divOne);
+		
+		/*
+		 * 5.将jQuery对象转换为dom对象
+		 */
+		//5.1通过下标取出来
+		var $divs = $('div');
+		var div11 = $divs[0];
+		console.log(div11);
+		
+		//5.2通过jQuery的get()
+		
+		var div12 = $divs.get(1);
+		console.log(div12);
+		
+	})
+</script>

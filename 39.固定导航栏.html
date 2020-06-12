@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>固定导航栏</title>
+		<style>
+			body{
+				width: 1080px;
+				height: 720px;
+			}
+			.top{
+				width: 1080px;
+				height: 100px;
+				background: red;
+			}
+			.nav{
+				width: 1080px;
+				height: 100px;
+				background: navy;
+			}
+			.main{
+				margin-top: 10px;
+				width: 1080px;
+				height: 5000px;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top"></div>
+		<div class="nav"></div>
+		<div class="main"></div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//给页面设置一个滚动事件
+		
+		//计算头部的高度
+		var topHeight = $('.top').height();
+		
+		//计算导航栏的高度
+		var navHeight = $('.nav').height();
+		
+		$(window).scroll(function(){
+			//1.获取页面被卷曲的距离
+			var scrollTopValue = $(window).scrollTop();
+			console.log(scrollTopValue);
+			
+			//2.判断
+			if(scrollTopValue>=topHeight){
+				//固定导航栏
+				$('.nav').css({
+					position:'fixed',
+					top:0,
+					left:0
+				});
+				//设置内容部分的margin-top的值为导航栏的高度
+				$('.main').css({
+					marginTop:navHeight+10
+				});
+			}else{
+				//让导航栏的定位还原
+				$('.nav').css({
+					position:'static',
+					top:0,
+					left:0
+				});
+				//让内容部分的margin-top的值还原
+				$('.main').css({
+					marginTop:10
+				});
+			}
+			
+		})
+	})
+</script>

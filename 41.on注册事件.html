@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				margin-top: 10px;
+			}
+			.one{
+				border: 1px solid red;
+			}
+			
+			.two{
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<div class="one" id="one"></div>
+		<span style="border: 1px solid green">我是一个span标签</span>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		$('#btn').click(function(){
+			var $divNew = $('<div class="two"></div>');
+			$('body').append($divNew);
+		});		
+		//1.on简单注册事件
+		//不支持动态创建
+		$('div').on('click',function(){
+			console.log("我是点击事件");
+		});
+		
+		//2.on委托注册
+		//需要把事件注册到父亲节点
+		$('body').on('click','div,span',function(){
+			console.log("我是点击事件");
+		});
+	})
+</script>

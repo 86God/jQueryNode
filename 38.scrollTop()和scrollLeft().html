@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				width: 2000px;
+				height: 2000px;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				overflow: auto;
+			}
+			img{
+				vertical-align: top;
+				width: 400px;
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<div>
+			<img src="img/1.jpg"/>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		$('#btn').click(function(){
+			
+			//1.获取和设置元素被卷曲的距离
+			//(1)获取
+			//scrollLeft()	获取元素内容被卷曲进去的宽度
+			//scrollTop()	获取元素内容被卷曲进去的高度
+			console.log($('div').scrollLeft());
+			console.log($('div').scrollTop());
+			
+			//(2)设置
+			//scrollLeft(数值)	设置元素内容被卷曲进去的宽度
+			//scrollTop(数值)		设置元素内容被卷曲进去的高度
+			$('div').scrollLeft(200);
+			$('div').scrollTop(100);
+			
+			
+			//2.获取和设置页面被卷曲的距离
+			//(1)获取
+			//获取页面被卷曲的宽度
+			console.log($(window).scrollLeft());
+			//获取页面被卷曲的高度
+			console.log($(window).scrollTop());
+			
+			//(2)设置
+			$(window).scrollLeft(1000);
+			$(window).scrollTop(1000)
+		})
+	})
+</script>

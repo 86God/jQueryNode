@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>开灯</button>
+		<button>关灯</button>
+		<img src="img/1.jpg" />
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery未压缩版.js" ></script>
+<script>
+	var btns = $('button');
+	console.log(btns);
+//	btns[0].onclick = function(){
+//		$('body').css('background-color','white');
+//	}
+//	
+//	btns[1].onclick = function(){
+//		$('body').css('background-color','black');
+//	}
+	
+	$(btns[0]).click(function(){
+		$('body').css('background-color','white');
+	});
+	
+	btns[1].onclick = function(){
+		$('body').css('background-color','black');
+	}
+	
+</script>

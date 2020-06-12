@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				margin-top: 10px;
+			}
+			.one{
+				border: 1px solid red;
+			}
+			
+			.two{
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<input type="button" value="按钮2" id="btn2" />
+		<div class="one" id="one"></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//事件触发trigger
+		
+		//(1)代码的方式触发事件
+		//(2)可以触发自定义事件
+		
+//		$('#one').on('click',function(){
+//			console.log('单击事件。。。');
+//		});
+//		
+//		var i = 0;
+//		$('#btn').on('click',function(){
+//			i++;
+//			if(i>=3){
+//				//条件满足，触发事件
+////				$('#one').click();
+//				$('#one').trigger('click');
+//			}
+//		});
+		
+		//给div注册一个自定义事件（没有触发事件）
+		$('#one').on('kill',function(){
+			console.log('我是kill事件');
+		});
+		
+		//使用触发器触发
+		$('#btn2').on('click',function(){
+			var res = confirm('是否启动kill事件');
+			if(res){
+				//触发自定义kill事件
+				$('#one').trigger('kill');
+			}
+		})
+		
+	})
+</script>

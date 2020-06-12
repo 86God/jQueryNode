@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>层级选择器</title>
+	</head>
+	<body>
+		<div id='father'>爸爸div
+			<span>舅舅</span>
+			<span>大伯</span>
+			<p>二伯</p>
+			<p>三伯</p>	
+				
+			<div id='son'>儿子div
+				<span>儿子1</span>
+				<span>儿子2</span>
+				<p>儿子3</p>
+				<div id='grandson'>孙子div
+					<span>孙子1</span>
+					<span>孙子2</span>
+					<p>孙子3</p>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		
+		//1.子代选择器
+		
+		//(1)获取到id为father的直接子代div，不能获取到孙子元素
+		
+		console.log($('#father > div'));
+		
+		
+		//(2)获取id为father的直接子代div和span
+		 
+		console.log($('#father > div , #father > p '))
+		
+		//2.后代选择器
+		//获取id为father的所有子代div，包括孙子代
+		console.log($('#father div'));
+		
+	})
+</script>

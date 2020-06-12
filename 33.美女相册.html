@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>美女相册</title>
+		<style>
+			body{
+				margin-left: 100px;
+			}
+			ul{
+				list-style-type: none;
+				padding: 0px;
+			}
+			li{
+				display:inline-block;
+			}
+			
+			.imgSmall{
+				width: 100px;
+				height: 100px;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>美女相册</h2>
+		<ul id="imagellery">
+			<li>
+				<a href="img/img2.jpg" title="美女1">
+					<img class="imgSmall" src="img/img2.jpg" />
+				</a>
+			</li>
+			<li>
+				<a href="img/img5.jpg" title="美女2">
+					<img class="imgSmall" src="img/img5.jpg" />
+				</a>
+			</li>
+			<li>
+				<a href="img/img6.jpg" title="美女3">
+					<img class="imgSmall" src="img/img6.jpg" />
+				</a>
+			</li>
+			<li>
+				<a href="img/img7.jpg" title="美女4">
+					<img class="imgSmall" src="img/img7.jpg" />
+				</a>
+			</li>
+		</ul>
+		<div style="clear:both"></div>
+		<img id="image" src="img/img2.jpg" alt="" width="450px" />
+		<p id="des">选择一张图片</p>
+		
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//1.给小图片的a标签添加事件
+		//让大图的src与点击的小图的href一致
+		//让id为des的p标签的值为小图title
+		$('#imagellery>li>a').click(function(){
+			var scrValue = $(this).attr('href');
+			var titleValue = $(this).attr('title');
+			console.log(scrValue);
+			console.log(titleValue);
+			$('#image').attr('src',scrValue);
+			$('#des').text(titleValue);
+			return false;
+		})
+	})
+</script>

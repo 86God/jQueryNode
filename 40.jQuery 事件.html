@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				margin-top: 10px;
+			}
+			.one{
+				border: 1px solid red;
+			}
+			
+			.two{
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn" />
+		<div class="one" id="one"></div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//用原生的js给div注册事件
+		//原生js注册相同的事件，后面的会把前面的覆盖
+//		document.getElementById("one").onclick=function(){
+//			alert("单击事件1");
+//		};
+//		
+//		document.getElementById("one").onclick=function(){
+//			alert("单击事件2");
+//		}
+		
+		//用jQuery给div注册事件
+		//jQuery注册相同的事件，不会吧前面的覆盖，
+//		$('#one').click(function(){
+//			alert("单击事件1");
+//		});
+//		$('#one').click(function(){
+//			alert("单击事件2");
+//		});
+
+		$('#btn').click(function(){
+			var $divNew = $('<div class="two"></div>');
+			$('body').append($divNew);
+		});
+		
+		
+		//1.简单的事件绑定 click()
+		//不支持同时注册，也不支持动态注册（新创建的组件不能自动注册应有的事件）
+		$('div').click(function(){
+			console.log("鼠标单击事件");
+		});
+		
+		$('div').mouseenter(function(){
+			console.log("鼠标移入事件");
+		});
+		
+		
+		//2.bind方式注册事件
+		//支持同时注册，也不支持动态注册（新创建的组件不能自动注册应有的事件）
+		$('div').bind({
+			mouseenter:function(){
+				console.log("鼠标移入事件");
+			},
+			click:function(){
+				console.log("鼠标单击事件");
+			}
+		});
+		
+		//3.delegate注册委托事件(需要把事件注册在父亲节点上面)——原理是事件冒泡
+		//支持同时注册，也支持动态注册（新创建的组件还自动注册应有的事件）
+		$('body').delegate('div',{
+			mouseenter:function(){
+				console.log("鼠标移入事件");
+			},
+			click:function(){
+				console.log("鼠标单击事件");
+			}
+		});
+		
+		//4.jQuery1.7之后，jQuery用on统一了所有事件的注册
+		
+	})
+</script>
+

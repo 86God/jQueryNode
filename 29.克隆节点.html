@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 400px;
+				height: 200px;
+				border: 1px solid red;
+			}
+			#div2{
+				width: 400px;
+				height: 200px;
+				border: 1px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="克隆" id="clone" />
+		<div id="div1">
+			<span>span1</span>
+			<p>p1
+				<b>b1</b>
+			</p>
+		</div>
+		<br />
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		$('#div1').click(function(){
+			alert('我被点击到了');
+		})
+		//clone(参数)：克隆
+		//无参：默认为false
+		//参数：无论是true还是false都会克隆后代节点
+		//参数为true：会把事件克隆    false:不会克隆事件
+		
+		//只存在于内存中，如果要显示，就要追加到页面上
+		$('#clone').click(function(){
+		 	var $cloneDiv = $('#div1').clone(false);
+		 	console.log($cloneDiv);
+		 	
+		 	//修改克隆节点的id
+		 	$cloneDiv.attr('id','div2');
+		 	//把克隆的节点追加到body
+		 	$('body').append($cloneDiv);
+		})
+	})
+</script>

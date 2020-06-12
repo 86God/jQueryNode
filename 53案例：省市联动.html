@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/pcasunzip.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+function getValue(){ 
+var getpro=document.getElementById("province").value;
+var getcity=document.getElementById("city").value;
+var getarea=document.getElementById("area").value;
+alert(getpro+" "+getcity+" "+getarea);
+ }
+</script>
+</head>
+<body>
+<font size="5" color="color<b></b>">根据需要可进行删除，删除须知：例如如果删除出生地该行，下面script中也要做想对应的操作，如果改动，下面script中的也要做相应的改动,得到select的值需在每个省市县三级三个select中添加上id的得到，例如：
+select name="user.province" id="province"；
+select name="user.city" id="city"；
+select name="user.area" id="area"<br>
+</font>
+</br></br></br>
+
+<form action="" method="">
+<fieldset style="padding:5px;">
+<legend>省市地区联动</legend>
+出　　 生 　地：<select name="user.province" id="province"></select>
+				<select name="user.city" id="city"></select>
+				<select name="user.area" id="area"></select><br>
+ <input type="button" name="bt" id="bt" value="测试" onclick="getValue()">
+</fieldset>
+</form>
+<script language="javascript" defer>
+new PCAS("user.province","user.city","user.area","山东省","济南市","济南市");
+
+</script>
+<br>
+</body>

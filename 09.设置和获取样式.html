@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				border: 2px solid red;
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<button id='but1'>获取</button>
+		<button id='but2'>设置</button>
+		<div id='div1'></div>
+		<div id='div2'></div>
+		<div id='div3'></div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery未压缩版.js" ></script>
+<script>
+	$(function(){
+		//1.获取样式，css()方法
+		$('#but1').click(function(){
+			//1.1 获取id为div1的样式
+			console.log($('#div1').css('width'));
+			console.log($('#div1').css('height'));
+			console.log($('#div1').css('background-color'));
+			console.log($('#div1').css('border'));
+//			
+//			//在IE浏览器中，获取边框样式，一定要给准确的属性
+//			console.log($('#div1').css('border-top-width'));
+			
+			//1.2 获取标签为div的样式（只能获取到第一个div的样式）
+			//获取包含多个dom对象的样式，只能回去到第一个元素的样式
+			console.log($('div').css('width'));
+			console.log($('div').css('height'));
+			console.log($('div').css('background-color'));
+			console.log($('div').css('border'));
+			
+			//在IE浏览器中，获取边框样式，一定要给准确的属性
+			console.log($('div').css('border-top-width'));
+			
+		})
+		
+		
+		//2.设置样式：css(样式名,样式值)
+		//设置的样式是行内样式
+		$('#but2').click(function(){
+			//2.1 给id为div1的元素设置样式
+			//设置单样式
+//			$('#div1').css('width',200);
+//			$('#div1').css('height','200px');
+//			$('#div1').css('background-color','red');
+//			$('#div1').css('border','10px solid green');
+			
+			//设置多样式
+			$('#div1').css({
+				width:300,
+				'height':300,
+				backgroundColor:'red',
+//				'background-color':'red',
+				border:'10px solid green',
+				
+			});
+			
+			//2.2 给标签为div的元素们设置样式
+			//会给所有的div元素全部设置到新样式
+			
+			$('div').css({
+				
+				width:300,
+				'height':300,
+				backgroundColor:'red',
+//				'background-color':'red',
+				border:'10px solid green',
+				
+			});
+			
+			
+		})
+		
+		
+		
+	})
+</script>

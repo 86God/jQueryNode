@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格删除</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			table{
+				border-collapse:collapse ;
+				border-spacing: 0;
+			}
+			
+			thead{
+				display: table-header-group;
+				vertical-align: middle;
+				border-color:inherit ;
+			}
+			
+			tbody{
+				display: table-row-group;
+				vertical-align: middle;
+				border-color: inherit;
+			}
+			th{
+				padding: 10px 10px;
+				background-color: skyblue;
+				border: 1px solid white;
+			}
+			td{
+				padding: 10px 10px;
+				background-color: #eeeeee;
+				border: 1px solid #999999;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<input type="button" value="清空内容" id="btn" />
+			<table>
+				<thead>
+					<tr>
+						<th>专栏名称</th>
+						<th>内容描述</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="tb">
+					<tr>
+						<td>JavaSE 学习笔记</td>
+						<td>参考Oracle官方文档，系统学习JavaSE</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+					<tr>
+						<td>Oracle数据库笔记</td>
+						<td>参考Oracle官方文档，系统学习Oracle数据库</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+					<tr>
+						<td>LeetCode热门算法100道</td>
+						<td>刷题的必选之路</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+					<tr>
+						<td>Linux学习笔记</td>
+						<td>从零学习Linux系统</td>
+						<td><button class="del">删除</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//1.清空内容
+		$('#btn').click(function(){
+			$('#tb').empty();
+		})
+		
+		//2.删除一行
+		$('#tb .del').click(function(){
+			console.log("123");
+			console.log($(this));
+			$(this).parent().parent().remove();
+		})
+	})
+</script>

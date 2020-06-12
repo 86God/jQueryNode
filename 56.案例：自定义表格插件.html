@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			table{
+				display: table;
+				border-spacing: 2px;
+				border: 1px solid hotpink;
+				width: 500px;
+				border-collapse: collapse;
+			}
+			thead{
+				display: table-header-group;
+				vertical-align: middle;
+				border-color: inherit;
+			}
+			th {
+				border: 1px solid hotpink;
+			}
+			
+			tbody{
+				text-align: center;
+			}
+			
+			td{
+				border: 1px solid hotpink;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="c">
+			
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery3.5.1.js" ></script>
+<script type="text/javascript" src="js/jQuery-table.js" ></script>
+<script>
+	$('#c').table(['序号','姓名','年龄','工资'],[
+	{n:'xy',age:20,s:10},
+	{n:'wy',age:18,s:10},
+	{n:'zf',age:18,s:9}
+	]);
+	
+</script>

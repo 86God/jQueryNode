@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>五角星评分案例</title>
+		<style>
+			ul{
+				list-style: none;
+			}
+			li{
+				display: inline-block;
+			}
+			.comment{
+				font-size:40px ;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="comment">
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+		</ul>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//需求1:鼠标移入五角星，会把当前li标签和前面的li标签显示为实心五角星，后面的显示空心五角星
+		//需求2:鼠标离开li，会把所有的li标签设为空心五角星
+		//需求3:点击li，鼠标离开后，刚才被点击的li标签及前面的li标签为实心，后面为空心
+		
+		//prev():上一个兄弟
+		//prevAll():前面所有兄弟
+		//next():下一个兄弟
+		//nextAll():后面所有兄弟
+		
+		
+		//需求1：
+		$('.comment>li').on('mouseenter',function(){
+//			console.log('鼠标进入');
+			//需求1
+			//这样不可行，prevAll()返回的jQuery对象不止一个，所以再用nextAll()，他们会相互覆盖
+//			$(this).text('★').prevAll().text('★').nextAll().text('☆');
+
+			//这样可行，end()会返回上一层的结果
+			$(this).text('★').prevAll().text('★').end().nextAll().text('☆');
+			
+			//这样也可行
+//			$(this).text('★').prevAll().text('★');
+//			$(this).nextAll().text('☆');
+			
+			
+			
+		}).on('mouseleave',function(){
+//			console.log('鼠标离开');
+			//需求2
+			$('.comment>li').text('☆');
+			
+			//获取刚才点击的li(属性选择器)
+			$('.comment>li[flag]').text('★').prevAll().text('★');
+			
+			$('.comment>li[flag]').nextAll().text('☆');
+
+		}).on('click',function(){
+//			console.log('鼠标单击');
+			//需求3：给当前的li添加记号
+			//给当前鼠标点击的li添加独一无二的属性
+			$(this).attr('flag','flag').siblings().removeAttr('flag');
+			
+			
+			
+		})
+		
+		
+	})
+</script>

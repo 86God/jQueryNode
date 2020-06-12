@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				
+				list-style: none;
+				font-size:20px ;
+				color: black;
+			}
+			li{
+				margin-top: 10px;
+				margin-left: 10px ;
+				display: inline-block;
+				width: 200px;
+				height: 200px;
+				text-align: center;
+				border: 2px solid red;
+				background-color: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="ulList">
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+			<li>我是一个li标签</li>
+
+		</ul>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		var $lis = $('#ulList').children();
+		
+		//给lis的每一个li设置透明度
+		//each(function(index,element){}
+		//each作用：遍历jQuery对象集合，为每一个匹配的元素执行一个函数
+		//什么时候使用？
+		//给每一个对象设置不同值的时候
+		//index 是索引，element是遍历到的标签，为一个dom对象
+		$lis.each(function(index,element){
+			$(element).css('opacity',index/10);
+			console.log(index/10);
+		});
+	})
+</script>

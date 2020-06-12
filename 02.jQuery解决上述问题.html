@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery解决上述问题</title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+			}
+		</style>	
+	</head>
+		<body>
+		<input type="button" value="设置边框" id="btnOne" />
+		<input type="button" value="设置文本" id="btnTwo" />
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>
+
+
+
+<script src="js/jQuery.js"></script>
+<script>
+	//入口函数
+	$(document).ready(function(){
+		//设置边框
+		$('#btnOne').click(function(){
+			$('div').css('border','1px solid red');
+		})
+		
+		//设置文本
+		$('#btnTwo').click(function(){
+			$('div').text("我是设置的文本");
+		})
+	});
+	
+	//入口函数
+	$(document).ready(function(){
+		console.log("我又是一个入口函数");
+	})
+	
+	
+	
+	//jQuery的优点
+	//1.是可以有多个入口函数
+	//2.jQuery的api名字简单
+	//3.jQuery代码简洁（隐式迭代）
+	//4.jQuery帮我们解决浏览器兼容问题
+	//5.容错率较高，前面代码出现问题，后面代码不受影响
+	
+</script>

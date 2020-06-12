@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+	作者：2584966199@qq.com
+	时间：2020-05-28
+	描述：利用js给按钮添加事件
+-->
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+		<script>
+			
+			//入口函数
+			window.onload = function() {
+				var btnOne = document.getElementById("btnOne");
+				var btnTwo = document.getElementById("btnTwo");
+				var divs = document.getElementsByTagName("div");
+				console.log(btnOne);
+				btnOne.onclick = function() {
+					for(var i = 0; i < divs.length; i++) {
+						divs[i].style.border = '1px solid red';
+					}
+				}
+
+				btnTwo.onclick = function() {
+					for(var i = 0; i < divs.length; i++) {
+						divs[i].innerText = "我是设置的文本";
+					}
+				}
+			}
+
+//			window.onload = function(){
+//				console.log("我又是一个入口函数");
+//			}
+
+			//原生js的缺点
+			//1.只能有一个入口函数，后面的会把前面的覆盖掉
+			//2.原生js的api名字太长
+			//3.原生js有的时候代码冗余
+			//4.原生js的api有兼容问题
+			//5.原生js的容错率比较低，前面代码出问题，后面的代码执行不了
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="设置边框" id="btnOne" />
+		<input type="button" value="设置文本" id="btnTwo" />
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+
+</html>

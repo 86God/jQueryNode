@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#one{
+				width: 200px;
+				height: 200px;
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="注册事件" id="btn1" />
+		<input type="button" value="解绑事件" id="btn2" />
+		<br />
+		<div class="one" id="one"></div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//jQuery用on注册事件,用off来解绑
+		//off()不给参数就是解绑所有的事件
+		//off(参数)解绑指定事件
+		
+		//添加注册事件
+		$('#btn1').click(function(){
+			//给div注册事件
+			$('#one').on({
+				'click':function(){
+					console.log("这个单击事件");
+				}
+			});
+			$('#one').on({
+				'mouseenter':function(){
+					console.log("这个鼠标移入事件");
+				}
+			});
+		});
+		
+		//添加解绑事件
+		$('#btn2').click(function(){
+			//给div解绑事件(无参数,解绑所有参数)
+//			$('#one').off();
+			
+			//解绑指定事件(有参数,解绑指定事件)
+			$('#one').off('click');
+		})
+		
+		//添加解绑事件(不是用on注册的也可以用off解绑)
+		$('#btn2').click(function(){
+			$('#btn1').off('click');
+		})
+	})
+</script>

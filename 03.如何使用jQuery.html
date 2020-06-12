@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
+
+<script src="js/jQuery3.5.1.js">	</script>
+
+<script>
+	//如何使用jQuery?
+		//1.引入jQuery文件
+		//2.先写一个入口函数
+		//3.找到你要操作的元素（jQuery 选择器）
+		//4.去操作他的属性，样式
+	
+	
+	$(document).ready(function(){
+		//链式编程
+		$('div').width(100).height(100).css('backgroundColor','red').text('呵呵');
+	})
+	
+</script>

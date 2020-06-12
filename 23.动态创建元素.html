@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 300px;
+				height: 300px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="html()" id="btnHtml" />
+		<input type="button" value="$()" id="btn1" />
+		
+		<div id="div1">
+			<p>p1
+				<span>span1</span>
+			</p>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		/*
+		 * 原生js创建节点：
+		 * (1) document.write()
+		 * (2)innerHTML()
+		 * (3)document.createElement()
+		 */
+		
+		/*
+		 * jQuert创建节点：
+		 * (1)html()
+		 * (2)$()
+		 */
+		
+		//1. html()
+		$('#btnHtml').click(function(){
+			//1.1 获取内容：html()无参是获取内容
+//			console.log($('#div1').html());
+			
+			//1.2设置内容：html()有参数
+			//设置的内容会把原先的内容覆盖
+			$('#div1').html('我是设置的内容<a href="https://www.baidu.com">百度一下</a>');
+		});
+		
+		//2. $()
+		//能够创建元素，创建元素在内存中
+		$('#btn1').click(function(){
+			var $link = $('<a href="https://leetcode-cn.com/problemset/all/">我的Leetcode</a>');
+//			console.log($link);
+			//追加元素
+			$('#div1').append($link);
+		});
+		
+	})
+</script>

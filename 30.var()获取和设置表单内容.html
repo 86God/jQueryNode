@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="获取" id="btn-get" />
+		<input type="button" value="设置" id="btn-set" />
+		<input type="text" placeholder="请输入账号" value="" id="txt"/>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//原生js是通过value属性来获取或者设置表单元素值
+		//jQuery是通过 var()
+		
+		//1.val()，无参就是获取
+		$('#btn-get').click(function(){
+			console.log($('#txt').val());
+		});
+		
+		//2.val(设置的值)，有参就是设置
+		$('#btn-set').click(function(){
+			$('#txt').val("我是设置的值");			
+		});
+		
+		
+	})
+</script>

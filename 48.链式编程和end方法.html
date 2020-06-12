@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	//链式编程
+	//1.什么时候可以链式编程？
+	//如果给元素调用一个方法，返回值为一个jQuery对象，那就可以继续在点出jQuert方法
+	//如果返回值不是我们想要的，那就不要继续链式编程了
+	$('div').width(100).height(100).css('background-color','red');
+	
+	
+	//2.end()方法会返回上一层的结果
+//	$(this).text('★').prevAll().text('★').end().nextAll().text('☆');
+</script>

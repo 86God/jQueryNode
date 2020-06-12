@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格删除</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			table{
+				border-collapse:collapse ;
+				border-spacing: 0;
+			}
+			
+			thead{
+				display: table-header-group;
+				vertical-align: middle;
+				border-color:inherit ;
+			}
+			
+			tbody{
+				display: table-row-group;
+				vertical-align: middle;
+				border-color: inherit;
+			}
+			th{
+				padding: 10px 10px;
+				background-color: skyblue;
+				border: 1px solid white;
+			}
+			td{
+				padding: 10px 10px;
+				background-color: #eeeeee;
+				border: 1px solid #999999;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			
+			<table>
+				<thead>
+					<tr>
+						<th><input type="checkbox" id="ckb_all"/></th>
+						<th>专栏</th>
+						<th>内容描述</th>
+						
+					</tr>
+				</thead>
+				<tbody id="tb">
+					<tr>
+						<td><input type="checkbox" id="ckb1" class="ckb" /></td>
+						<td>JavaSE 学习笔记</td>
+						<td>参考Oracle官方文档，系统学习JavaSE</td>
+						
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="ckb2" class="ckb"/></td>
+						<td>Oracle数据库笔记</td>
+						<td>参考Oracle官方文档，系统学习Oracle数据库</td>
+					
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="ckb3" class="ckb"/></td>
+						<td>LeetCode热门算法100道</td>
+						<td>刷题的必选之路</td>
+					
+					</tr>
+					<tr>
+						<td><input type="checkbox" id="ckb4" class="ckb"/></td>
+						<td>Linux学习笔记</td>
+						<td>从零学习Linux系统</td>
+					
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//(1)设置全选按钮功能
+		$('#ckb_all').click(function(){
+			var ckb_all_value = $(this).prop('checked');
+//			console.log(ckb_all_value);
+			$('#tb .ckb').prop('checked',ckb_all_value);
+		});
+		
+		//(2)如果多选框都选中了，则全选框也选中，如果有一个没选中，全选框就未选中
+		$('#tb .ckb').click(function(){
+			//判断下面的多选框是否都被选中了
+			var flag = true;
+
+
+			//(1)让每个多选框的checked值求与运算
+//			for(var i = 0;i<$('#tb .ckb').length;i++){
+////				console.log($($('#tb .ckb')[i]).prop('checked'));
+//				flag = flag && $($('#tb .ckb')[i]).prop('checked');	
+//			}
+			
+			//(2)统计选中的次数和总框数比较
+			var numofAll = $('#tb .ckb').length;
+			var numofChecked =  $('#tb .ckb:checked').length;
+			$('#ckb_all').prop('checked',numofAll==numofChecked);
+		});
+	})
+</script>

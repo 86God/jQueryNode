@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				
+			}
+			body{
+				width:2000px;
+				height:2000px;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				
+			}
+			.one{
+				border: 1px solid red;
+				position: relative;
+				top: 100px;
+				left: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="one" id="one">
+			<input type="button" value="按钮" id="btn" />
+			<a href="https://www.baidu.com">百度一下</a>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//1.什么是事件对象
+		//注册一个事件，系统会帮我们生成一个对象记录这个事件触发时候的一些信息
+		//比如事件是按那个键触发的，触发的位置坐标。。。
+		//jQuery在事件中由参数e来获取
+		//jQuery的事件对象是对元素js的事件进行了封装，处理了兼容性
+		$('#one').on('click',function(e){
+			console.log(e);
+			
+			//2.三个常用坐标
+			//screenX,screenY触发事件的点距离屏幕左上角的坐标
+			console.log('ScreenX'+':'+e.screenX+'---'+'ScreenY'+':'+e.screenY);
+			
+			//clientX,clientY触发事件的点距离可视区左上角的坐标（忽视滚动条）
+			console.log('ClientX'+':'+e.clientX+'---'+'ClientY'+':'+e.clientY);
+			
+			//pageX,pageY触发事件的点距离页面左上角的坐标
+			console.log('pageX'+':'+e.pageX+'---'+'pageY'+':'+e.pageY);
+			
+			
+			alert("我是div的点击事件");
+		});
+		
+		$('#btn').on('click',function(e){
+			//3.stopPropagation():阻止事件冒泡
+			
+			alert('我是按钮的点击事件');
+			e.stopPropagation();
+		});
+		
+		$('a').on('click',function(e){
+			alert('我是a标签的单击事件');
+//			//stopPropagation():阻止事件冒泡
+//			e.stopPropagation();
+//			
+//			//4.preventDefault():阻止默认行为,阻止a标签跳转
+//			e.preventDefault();
+			
+			//5.return false 既能阻止事件冒泡，又能阻止a标签跳转
+			return false;
+		});
+		
+		//5.给页面注册键盘按下事件
+		$(document).on('keydown',function(e){
+			//keyCode可以获取按的那个键
+			console.log(e.keyCode);
+		})
+		
+	})
+</script>

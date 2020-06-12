@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>淡入淡出</title>
+		<style>
+			div{
+				height: 500px;
+				width: 500px;
+				background: red;
+				display: none;				
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="淡入" id='fadeIn' />
+		<input type="button" value="淡出" id='fadeOut' />
+		<input type="button" value="切换" id='fadeToggle' />
+		<input type="button" value="淡入到哪里" id='fadeTo' />
+		<br />
+		<div id ="div1"></div>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		/*1.淡入  fadeIn(参数1，参数2)
+		 * 参数1：动画时长
+		 * 参数2：回调函数
+		 */
+		$('#fadeIn').click(function(){
+			//让id为div1的元素淡入
+//			$('#div1').fadeIn();    //默认的动画时长，400ms
+//			$('#div1').fadeIn(2000);
+			$('#div1').fadeIn(1000,function(){
+				alert('淡入完成');
+			});			
+		});
+		
+		/*2.淡出  fadeOut(参数1，参数2)
+		 * 参数1：动画时长
+		 * 参数2：回调函数
+		 */
+		$('#fadeOut').click(function(){
+			//让id为div1的元素淡入
+//			$('#div1').fadeOut();    //默认的动画时长，400ms
+//			$('#div1').fadeOut(2000);
+			$('#div1').fadeOut(1000,function(){
+				alert('淡出完成');
+			});			
+		});
+		
+		/*3.切换  fadeToggle(参数1，参数2)
+		 * 参数1：动画时长
+		 * 参数2：回调函数
+		 */
+		$('#fadeToggle').click(function(){
+			//让id为div1的元素淡入
+			$('#div1').fadeToggle(1000);    //默认的动画时长，400ms
+//			$('#div1').fadeToggle(2000);
+//			$('#div1').fadeToggle(1000,function(){
+//				alert('切换完成');
+//			});			
+		});
+		
+		/*3.淡入到哪里  fadeTo(参数1，参数2,参数3)
+		 * 参数1：动画时长
+		 * 参数2：透明度
+		 * 参数2：回调函数
+		 */
+		$('#fadeTo').click(function(){
+			//让id为div1的元素淡入
+//			$('#div1').fadeTo(1000,0.5);    //默认的动画时长，400ms
+			
+			$('#div1').fadeTo(1000,0.5,function(){
+				alert('淡入完成');
+			});			
+		});
+	})
+</script>

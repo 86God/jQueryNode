@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>城市选择</title>
+		<style type="text/css">
+			select{
+				width: 200px;
+				background: teal;
+				height: 200px;
+				font-size: 20px;
+			}
+			option{
+				font-weight: normal;
+				display: block;
+				white-space: pre;
+				padding: 0px 2px 1px;
+			}
+			.btn-box{
+				width: 30px;
+				display: inline-block;
+				vertical-align: top;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<h1>城市选择</h1>
+		<select id="src-city" name="src-city" multiple="multiple">
+			<option value="1">北京</option>
+			<option value="2">上海</option>
+			<option value="3">广州</option>
+			<option value="4">杭州</option>
+		</select>
+		<div class="btn-box">
+			<input type="button" value=">>" id="btn-sel-all" />
+			<input type="button" value="<<" id="btn-sel-none" />
+			<input type="button" value=">" id="btn-sel" />
+			<input type="button" value="<" id="btn-back" />
+		</div>
+		<select id="tar-city" name="tar-city" multiple="multiple"></select>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//1.全部到右边
+		$('#btn-sel-all').click(function(){
+			//找到左边所以的option，剪切到右边的select下
+			$('#src-city>option').appendTo($('#tar-city'));
+		});
+		
+		//1.全部到右边
+		$('#btn-sel-all').click(function(){
+			//找到左边所有的option，剪切到右边的select下
+			$('#src-city>option').appendTo($('#tar-city'));
+		});
+		
+		//2.全部到左边
+		$('#btn-sel-none').click(function(){
+			//找到右边所有的option，剪切到左边的select下
+			$('#tar-city>option').appendTo($('#src-city'));
+		});
+		
+		//3.选中的到右边
+		$('#btn-sel').click(function(){
+			//找到左边选中的option，剪切到右边的select中
+//			console.log($('#src-city>option:selected'));
+			$('#src-city>option:selected').appendTo($('#tar-city'));
+		});
+		
+		//3.选中的到左边
+		$('#btn-back').click(function(){
+			//找到右边选中的option，剪切到左边的select中
+//			console.log($('#tar-city>option:selected'));
+			$('#tar-city>option:selected').appendTo($('#src-city'));
+		});
+	})
+</script>

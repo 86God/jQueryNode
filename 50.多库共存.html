@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<script type="text/javascript" src="js/jQuery3.5.1.js" ></script>
+<script type="text/javascript" src="js/jQuery1.9.1.js" ></script>
+<script>
+	
+	//1.如何查看jQuery的版本
+//	console.log(jQuery.fn.jquery);
+//	console.log(jQuery.prototype.jquery);
+//	
+//	console.log($.fn.jquery);
+//	console.log($.prototype.jquery);
+//	
+	//2.如果引入了多个jQuery版本，那么我们使用的$是 那个？
+	//后面引入的会把前面引入的覆盖掉
+	console.log($.fn.jquery);
+	
+	//3.多库共存（后面加入的jQuery可以把$控制器释放，然后用替代品代替）
+	var _$ = $.noConflict();        //1.9.1把$元素的控制权释放掉
+	console.log(_$.fn.jquery);		//1.9.1把_$作为替代品
+	console.log(jQuery.fn.jquery); 	//1.9.1自己使用jQuery来操作
+	console.log($.fn.jquery);		//3.5.1拥有$的控制权
+	
+	//如果之前使用的1.9.1版本的$,现在$归3.5.1版本了，如何解决？
+	(function($){
+		//在这个自执行函数中，可以继续使用$了
+	}(_$));
+</script>

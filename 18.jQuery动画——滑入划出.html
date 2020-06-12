@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滑入划出</title>
+		<style>
+			div{
+				height: 500px;
+				width: 500px;
+				background: red;
+				display: none;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="滑入" id='slideDown' />
+		<input type="button" value="划出" id='slideUp' />
+		<input type="button" value="切换" id='slideToggle' />
+		<br />
+		<div id ="div1"></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		/*
+		 * 滑入    slideDown(参数1，参数2)
+		 * 参数1：动画执行时长,可以是数字，可以是字符串
+		 * 参数2：动画执行完毕后的回调函数
+		 */
+		$('#slideDown').click(function(){
+			//让id为div1的元素滑入
+//			$('#div1').slideDown();    //无参，默认时长为400毫秒
+			$('#div1').slideDown(2000);
+			$('#div1').slideDown(2000,function(){
+				alert("滑入完成");
+			});
+		});
+		
+		/*
+		 * 划出   slideUp(参数1，参数2)
+		 * 参数1：动画执行时长,可以是数字，可以是字符串
+		 * 参数2：动画执行完毕后的回调函数
+		 */
+		$('#slideUp').click(function(){
+			//让id为div1的元素划出
+//			$('#div1').slideUp();    //无参，默认时长为400毫秒
+//			$('#div1').slideDown(2000);
+			$('#div1').slideUp(2000,function(){
+				alert("划出完成");
+			});
+		});
+		
+		
+		/*
+		 * 切换  
+		 * 参数1：动画执行时长,可以是数字，可以是字符串
+		 * 参数2：动画执行完毕后的回调函数
+		 */
+		$('#slideToggle').click(function(){
+			//让id为div1的元素切换
+//			$('#div1').slideToggle();    //无参，默认时长为400毫秒
+//			$('#div1').slideToggle(2000);
+			$('#div1').slideToggle('fast');
+//			$('#div1').slideToggle(2000,function(){
+//				alert("切换完成");
+//			});
+		});
+		
+		
+		
+
+		
+		
+	})	
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn1" />
+		<input type="checkbox" id="ckb1" />
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//有一类属性：比如checked，写在元素身上表示选中，没有表示没有被选中
+		//js如何操作？设置属性为true或false
+//		document.getElementById("btn1").onclick=function(){
+//			//设置
+////			document.getElementById("ckb1").checked = true;
+//			//获取
+//			console.log(document.getElementById("ckb1").checked);
+//
+//		}
+		
+		//jQuery 不能再用attr,要用prop方法
+		$('#btn1').click(function(){
+			//无论选中或是没选中都是undefined
+//			console.log($('#ckb1').attr('checked'));
+
+			//如果多选框是选中状态返回true，未选中返回false
+			console.log($('#ckb1').prop('checked'));
+		})
+	})
+</script>

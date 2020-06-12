@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="append" id="btnAppend" />
+		<input type="button" value="prepend" id="btnPrepend" />
+		<input type="button" value="before" id="btnBefore" />
+		<input type="button" value="after" id="btnAfter" />
+		<input type="button" value="appendTo" id="btnAppendTo" />
+		
+		<ul id="ul1">
+			<li>我是第1个li标签</li>
+			<li>我是第2个li标签</li>
+			<li id="li3">我是第3个li标签</li>
+			<li>我是第4个li标签</li>
+			<li>我是第5个li标签</li>
+		</ul>
+		<ul id="ul2">
+			<li>我是第1个li标签2</li>
+			<li>我是第2个li标签2</li>
+			<li id="li32">我是第3个li标签2</li>
+			<li>我是第4个li标签2</li>
+			<li>我是第5个li标签2</li>
+		</ul>
+	</body>
+</html>
+
+<script type="text/javascript" src="js/jQuery.js" ></script>
+<script>
+	$(function(){
+		//添加标签的几种方式
+		//1.append()
+		//父元素.append(子元素)，把子元素添加到父元素的末尾
+		$('#btnAppend').click(function(){
+			//1.1 新创建一个li标签，添加ul中去，会添加到父元素的末尾
+//			var $liNew = $("<li>我是新创建的li标签</li>");
+//			$('#ul1').append($liNew);
+
+			//1.2 把ul1中已经有的元素，再次添加到url中，剪切后作为最后一个元素添加
+//			var $li3 = $('#li3');
+//			$('#ul1').append($li3);
+			
+			//1.3 把ul2中已经存在的标签，添加到ul1中，剪切后作为最后一个元素添加
+			var $li32 = $('#li32');
+			$('#ul1').append($li32);
+		});
+		
+		//2.prepend() 
+		//父元素.prepend(子元素)，把子元素添加到父元素的头部
+		$('#btnPrepend').click(function(){
+			//2.1 新建一个li标签，添加到ul1中，把新元素作为第一个子元素添加
+//			var $liNew = $("<li>我是新创建的li标签</li>");
+//			$('#ul1').prepend($liNew);
+			
+			//2.2 把ul1中已经有的元素，再次添加到url中，剪切后作为第一个元素添加
+//			var $li3 = $('#li3');
+//			$('#ul1').prepend($li3);
+			
+			//1.3 把ul2中已经存在的标签，添加到ul1中，剪切后作为第一个元素添加
+			var $li32 = $('#li32');
+			$('#ul1').prepend($li32);
+			
+		});
+		
+		//3.before()
+		//元素A.before(元素B) 把元素B作为元素A的兄弟元素添加元素A的前面
+		$('#btnBefore').click(function(){
+			//新建一个div
+			var $divNew = $('<div>我是新建的div</div>');
+			$('#ul1').before($divNew);
+		});
+		
+		//4.after()
+		//元素A.after(元素B) 把元素B作为元素A的兄弟元素添加元素A的后面
+		$('#btnAfter').click(function(){
+			//新建一个div
+			var $divNew = $('<div>我是新建的div</div>');
+			$('#ul1').after($divNew);
+		});
+		
+		//5.appendTo()
+		//子元素.appendTo(父元素)  把子元素添加到父元素末尾
+		$('#btnAppendTo').click(function(){
+			var $liNew = $("<li>我是新创建的li标签</li>");
+			$liNew.appendTo($('#ul1'));
+		})
+		
+	})
+</script>
